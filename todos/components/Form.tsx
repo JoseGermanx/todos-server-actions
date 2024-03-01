@@ -11,10 +11,7 @@ const Form = () => {
       ref={ref}
       action={async (formData) => {
         ref.current?.reset();
-        const { error } = await addtodo(formData);
-        if (error) {
-          alert(error.message);
-        }
+        await addtodo(formData);
       }}
       className="flex flex-col w-[300px] my-16"
     >
