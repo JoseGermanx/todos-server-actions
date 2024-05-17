@@ -25,7 +25,8 @@ export default async function Home() {
       <ul className="grid grip-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
         {todos.map((todo) => (
           <div key={todo.id} className="bg-yellow-100  drop-shadow-md rounded-md">
-           <form className="mx-3 flex justify-end border-b-2 border-orange-400" action={deleteTodo}>
+           <form className="mx-3 flex justify-between border-b-2 border-orange-400" action={deleteTodo}>
+                <label className="text-sm">id: {todo.id}</label>
                 <input type="hidden" name="id" value={todo.id} />
                 <button className="rounded bg-gray-700 text-gray-100 p-1 mb-1 mt-1 font-light text-xs">
                   Delete
