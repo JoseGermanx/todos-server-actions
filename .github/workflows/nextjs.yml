@@ -3,7 +3,6 @@
 # To get started with Next.js see: https://nextjs.org/docs/getting-started
 #
 name: Deploy Next.js site to Pages
-
 on:
   # Runs on pushes targeting the default branch
   push:
@@ -25,12 +24,40 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Jest tests
+        run: npm run test
+
   # Build job
   build:
+    environment:
+      name: github-pages
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name:   
+        uses: 1arp/create-a-file-action@0.4.5
+        with:
+          path: '/'
+          isAbsolutePath: false
+          file: '.env'
+          content: |
+            NEXT_PUBLIC_DATABASE_URL = ${{ secrets.NEXT_PUBLIC_DATABASE_URL }}
       - name: Detect package manager
         id: detect-package-manager
         run: |
