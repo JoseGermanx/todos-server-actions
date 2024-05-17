@@ -22,18 +22,23 @@ export default async function Home() {
     <main className="flex min-hscreen flex-col items-center w-full p-24">
       <h1 className="text-2xl font-bold">Post-It Page</h1>
       <Form />
-      <ul className="grid grid-cols-4 gap-4">
+      <ul className="grid grip-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
         {todos.map((todo) => (
-          <div key={todo.id} className="border p-4 bg-yellow-100 drop-shadow-md">
+          <div key={todo.id} className="bg-yellow-100  drop-shadow-md rounded-md">
+           <form className="mx-3 flex justify-end border-b-2 border-orange-400" action={deleteTodo}>
+                <input type="hidden" name="id" value={todo.id} />
+                <button className="rounded bg-gray-700 text-gray-100 p-1 mb-1 mt-1 font-light text-xs">
+                  Delete
+                </button>
+              </form>
+          <div
+            
+            className="p-4 bg-yellow-100"
+          >
             <div>
-            <li className="list-none">{todo.label}</li>
-            <form  className="mb-0" action={deleteTodo}>
-              <input type="hidden" name="id" value={todo.id} />
-              <button className="rounded bg-gray-700 text-gray-100 p-1 mt-4 font-light text-xs">
-                Delete
-              </button>
-            </form>
+              <li className="list-none">{todo.label}</li>
             </div>
+          </div>
           </div>
         ))}
       </ul>
