@@ -22,9 +22,9 @@ export default async function Home() {
     <main className="flex min-hscreen flex-col items-center w-full p-24">
       <h1 className="text-2xl font-bold">Post-It Page</h1>
       <Form />
-      <ul className="grid grip-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
+      <ul className="grid grip-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3">
         {todos.map((todo) => (
-          <div key={todo.id} className="bg-yellow-100  drop-shadow-md rounded-md">
+          <div key={todo.id} className="bg-yellow-100  drop-shadow-md rounded-md w-60">
            <form className="mx-3 flex justify-between border-b-2 border-orange-400" action={deleteTodo}>
                 <label className="text-sm">id: {todo.id}</label>
                 <input type="hidden" name="id" value={todo.id} />
