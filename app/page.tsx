@@ -24,12 +24,11 @@ export default async function Home() {
       <Form />
       <ul className="grid grip-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3">
         {todos.map((todo) => (
-          <div key={todo.id} className="bg-yellow-100  drop-shadow-md rounded-md w-60">
-           <form className="mx-3 flex justify-between border-b-2 border-orange-400" action={deleteTodo}>
-                <label className="text-sm">id: {todo.id}</label>
+          <div key={todo.id} className="bg-yellow-100  drop-shadow-md rounded-md w-60 h-48">
+           <form className="mx-3 flex justify-end" action={deleteTodo}>
                 <input type="hidden" name="id" value={todo.id} />
-                <button className="rounded bg-gray-700 text-gray-100 p-1 mb-1 mt-1 font-light text-xs">
-                  Delete
+                <button className=" text-red-900 p-1 mb-1 mt-1 font-bold text-xs" title="Eliminar">
+                  X
                 </button>
               </form>
           <div
