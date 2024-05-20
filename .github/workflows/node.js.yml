@@ -56,5 +56,9 @@ jobs:
       run: npm ci
     - run: touch .env
     - run : echo "${{ secrets.NEXT_PRISMA_URI }}" >> .env
-    - run: npm run build --if-present
+    - name: Prisma Migrate
+      run: npx prisma migrate dev
+    - name: Start App
+      run: npm start
+    #- run: npm run build --if-present
    
