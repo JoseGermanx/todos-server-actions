@@ -14,8 +14,9 @@ Este repositorio contiene el código fuente de una aplicación de notas que util
 1. Clona este repositorio en tu máquina local:
 
     ```bash
-    git clone https://github.com/tu-usuario/todos-server-actions.git
     
+    git clone https://github.com/tu-usuario/todos-server-actions.git
+
     ```
 
 2. Instala las dependencias del proyecto y sincroniza la base de datos:
