@@ -23,6 +23,7 @@ Este repositorio contiene el código fuente de una aplicación de notas que util
     cd todos-server-actions
     npm install
     npx prisma migrate dev
+    
 
     ```
 
