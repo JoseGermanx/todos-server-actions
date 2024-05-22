@@ -18,8 +18,8 @@ const Form = () => {
       <input
         type="text"
         name="label"
-        className="px-4 py-2 mb-3"
-        placeholder="Enter a new todo..."
+        className="px-4 py-2 mb-3 border"
+        placeholder="Enter a new post-it..."
         required
       />
       <Button />
