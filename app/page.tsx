@@ -20,7 +20,7 @@ export default async function Home() {
 
   return (
     <main className="flex min-hscreen flex-col items-center w-full p-24">
-      <h1 className="text-2xl font-bold">Post-It Page</h1>
+      <h1 className="text-4xl font-bold">Post-It Page</h1>
       <Form />
       <ul className="grid grip-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3">
         {todos.map((todo) => (
