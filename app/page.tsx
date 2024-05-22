@@ -4,21 +4,10 @@ import prisma from "../lib/prisma";
 import Form from "../components/Form";
 import { FaGithub } from "react-icons/fa";
 import Footer from "@/components/Footer";
+import { deleteTodo } from "@/actions/actions";
 
 export default async function Home() {
   const todos = await prisma.todo.findMany();
-
-  const deleteTodo = async (formData: FormData) => {
-    "use server";
-    const id = parseInt(formData.get("id")?.toString() ?? "0");
-    await prisma.todo.delete({
-      where: {
-        id: id as number,
-      },
-    });
-
-    revalidatePath("/");
-  };
 
   return (
     <>
