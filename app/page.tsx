@@ -24,10 +24,7 @@ export default async function Home() {
         <a href="https://github.com/username/repo" target="_blank" rel="noopener noreferrer" className=" top-5 right-5 fixed" title="Colabora">
       <FaGithub size={32} />
     </a>
-
-
-
-      <h1 className="text-4xl font-bold">Post-It Page</h1>
+      <h1 className="text-2xl md:text-4xl font-bold">Post-It Page</h1>
       <Form />
       <ul className="grid grip-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3">
         {todos.map((todo) => (
