@@ -2,6 +2,7 @@ import { revalidatePath } from "next/cache";
 import prisma from "../lib/prisma";
 
 import Form from "../components/Form";
+import { FaGithub } from "react-icons/fa";
 
 export default async function Home() {
   const todos = await prisma.todo.findMany();
@@ -20,6 +21,12 @@ export default async function Home() {
 
   return (
     <main className="flex min-hscreen flex-col items-center w-full p-24">
+        <a href="https://github.com/username/repo" target="_blank" rel="noopener noreferrer" className=" top-5 right-5 fixed" title="Colabora">
+      <FaGithub size={32} />
+    </a>
+
+
+
       <h1 className="text-4xl font-bold">Post-It Page</h1>
       <Form />
       <ul className="grid grip-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3">
