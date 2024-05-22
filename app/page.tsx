@@ -23,7 +23,7 @@ export default async function Home() {
   return (
     <>
     <main className="flex min-h-svh flex-col items-center w-full p-24">
-        <a href="https://github.com/username/repo" target="_blank" rel="noopener noreferrer" className=" top-5 right-5 fixed" title="Colabora">
+        <a href="https://github.com/josegermanx/todos-server-actions" target="_blank" rel="noopener noreferrer" className=" top-5 right-5 fixed" title="Colabora">
       <FaGithub size={32} />
     </a>
       <h1 className="text-2xl md:text-4xl font-bold">Post-It Page</h1>
