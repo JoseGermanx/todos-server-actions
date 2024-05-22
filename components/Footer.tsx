@@ -4,7 +4,7 @@ import Image from 'next/image'
 const Footer = () => {
   return (
     <>
-    <div className="w-full border-t border-gray-200 bg-white py-5 text-center">
+    <div className="w-full border-t border-gray-200 bg-white p-5 text-center bottom-0">
     <p className="text-gray-500">
       A web application made with <Image
         src="https://simpleicons.org/icons/nextdotjs.svg"

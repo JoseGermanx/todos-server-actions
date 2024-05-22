@@ -22,7 +22,7 @@ export default async function Home() {
 
   return (
     <>
-    <main className="flex min-hscreen flex-col items-center w-full p-24 bottom-0">
+    <main className="flex min-hscreen flex-col items-center w-full p-24">
         <a href="https://github.com/username/repo" target="_blank" rel="noopener noreferrer" className=" top-5 right-5 fixed" title="Colabora">
       <FaGithub size={32} />
     </a>
