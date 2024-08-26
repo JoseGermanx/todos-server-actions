@@ -17,7 +17,7 @@ export const addtodo = async (formData: FormData) => {
   }
 
   export const deleteTodo = async (formData: FormData) => {
-    const id = parseInt(formData.get("id")?.toString() ?? "0");
+    const id = formData.get("id")?.toString() ?? "0";
     await prisma.todo.delete({
       where: {
         id: id as unknown as string,
