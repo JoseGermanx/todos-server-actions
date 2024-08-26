@@ -60,7 +60,7 @@ jobs:
       run: npx prisma generate
     - name: Build Production Version
       run: npm run build --if-present
-    - name: Start Production App
+    - name: Start Production App with pm2
       run: | 
           npm install pm2
           pm2 restart next
