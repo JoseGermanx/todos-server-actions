@@ -1,5 +1,5 @@
 datasource db {
-  provider="postgresql"
+  provider="mongodb"
   url=env("NEXT_PUBLIC_DATABASE_URL")
 }
 
@@ -8,9 +8,9 @@ generator client {
 }
 
 model Todo {
-  id        Int      @id @default(autoincrement())
+  id        String      @id @default(cuid()) @map("_id")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  label    String   @db.VarChar(255)
+  label    String?
   done Boolean  @default(false)
 }
