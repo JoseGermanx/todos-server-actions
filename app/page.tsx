@@ -18,12 +18,14 @@ export default async function Home() {
 
   return (
     <>
-    <main className="flex min-h-svh flex-col items-center w-full p-24">
+    <main className="relative min-h-svh w-full p-6">
         <a href="https://github.com/josegermanx/todos-server-actions" target="_blank" rel="noopener noreferrer" className=" top-5 right-5 fixed" title="Colabora">
       <FaGithub size={32} />
     </a>
-      <h1 className="text-2xl md:text-4xl font-bold">Post-It Page</h1>
-      <Form />
+      <div className="absolute left-6 top-6 z-30 flex flex-col items-start">
+        <h1 className="text-2xl md:text-4xl font-bold">Post-It Page</h1>
+        <Form />
+      </div>
       <Board todos={todos} />
     </main>
     <Footer />

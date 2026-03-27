@@ -6,15 +6,16 @@ import { revalidatePath } from "next/cache";
 const GRID_COLUMNS = 4;
 const GRID_CELL_WIDTH = 260;
 const GRID_CELL_HEIGHT = 210;
-const GRID_PADDING = 16;
+const GRID_PADDING_X = 16;
+const GRID_PADDING_Y = 280;
 
 const getGridPosition = (index: number) => {
   const column = index % GRID_COLUMNS;
   const row = Math.floor(index / GRID_COLUMNS);
 
   return {
-    posX: GRID_PADDING + column * GRID_CELL_WIDTH,
-    posY: GRID_PADDING + row * GRID_CELL_HEIGHT,
+    posX: GRID_PADDING_X + column * GRID_CELL_WIDTH,
+    posY: GRID_PADDING_Y + row * GRID_CELL_HEIGHT,
   };
 };
 
