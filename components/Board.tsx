@@ -31,12 +31,22 @@ const Board = ({ todos }: { todos: Todo[] }) => {
   const dragRef = useRef<DragState | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [draggingId, setDraggingId] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const [, startTransition] = useTransition();
 
   useEffect(() => {
     setPositions(todos);
     positionsRef.current = todos;
   }, [todos]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const media = window.matchMedia("(max-width: 767px)");
+    const handleChange = () => setIsMobile(media.matches);
+    handleChange();
+    media.addEventListener("change", handleChange);
+    return () => media.removeEventListener("change", handleChange);
+  }, []);
 
   const updatePositions = (updater: (prev: Todo[]) => Todo[]) => {
     setPositions((prev) => {
@@ -47,6 +57,7 @@ const Board = ({ todos }: { todos: Todo[] }) => {
   };
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>, id: string) => {
+    if (isMobile) return;
     if (event.button !== 0) return;
     const container = containerRef.current;
     if (!container) return;
@@ -63,6 +74,7 @@ const Board = ({ todos }: { todos: Todo[] }) => {
   };
 
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (isMobile) return;
     const dragState = dragRef.current;
     const container = containerRef.current;
     if (!dragState || !container) return;
@@ -92,6 +104,7 @@ const Board = ({ todos }: { todos: Todo[] }) => {
   };
 
   const handlePointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (isMobile) return;
     const dragState = dragRef.current;
     if (!dragState) return;
 
@@ -127,18 +140,18 @@ const Board = ({ todos }: { todos: Todo[] }) => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full max-w-6xl min-h-[70svh] mt-6"
-      style={{ minHeight: boardMinHeight }}
+      className="relative w-full max-w-6xl min-h-[70svh] mt-6 flex flex-col gap-4 md:block"
+      style={isMobile ? undefined : { minHeight: boardMinHeight }}
       aria-label="Tablero de post-its"
     >
       {sortedTodos.map((todo) => (
         <div
           key={todo.id}
           className={
-            "bg-yellow-100 drop-shadow-md rounded-md w-60 h-48 touch-none select-none" +
-            (draggingId === todo.id ? " cursor-grabbing z-20" : " cursor-grab")
+            "bg-yellow-100 drop-shadow-md rounded-md w-full max-w-sm min-h-48 md:w-60 md:h-48 touch-auto md:touch-none select-none md:absolute" +
+            (draggingId === todo.id ? " md:cursor-grabbing z-20" : " md:cursor-grab")
           }
-          style={{ left: todo.posX, top: todo.posY, position: "absolute" }}
+          style={isMobile ? undefined : { left: todo.posX, top: todo.posY, position: "absolute" }}
           onPointerDown={(event) => handlePointerDown(event, todo.id)}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}

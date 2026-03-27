@@ -13,7 +13,7 @@ const Form = () => {
         ref.current?.reset();
         await addtodo(formData);
       }}
-      className="flex flex-col w-[300px] my-16"
+      className="flex flex-col w-full max-w-xs sm:max-w-sm md:w-[300px] my-8 md:my-16"
     >
       <textarea
         name="label"

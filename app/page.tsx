@@ -22,7 +22,7 @@ export default async function Home() {
         <a href="https://github.com/josegermanx/todos-server-actions" target="_blank" rel="noopener noreferrer" className=" top-5 right-5 fixed" title="Colabora">
       <FaGithub size={32} />
     </a>
-      <div className="absolute left-6 top-6 z-30 flex flex-col items-start">
+      <div className="relative z-30 flex flex-col items-start md:absolute md:left-6 md:top-6">
         <h1 className="text-2xl md:text-4xl font-bold">Post-It Page</h1>
         <Form />
       </div>
