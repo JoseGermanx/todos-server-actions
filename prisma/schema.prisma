@@ -13,4 +13,6 @@ model Todo {
   updatedAt DateTime @updatedAt
   label    String?
   done Boolean  @default(false)
+  posX Int @default(0)
+  posY Int @default(0)
 }
